@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #f7f7f7;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 1rem 0;
+      }
+
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 20px;
+      }
+
+      .section {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+      }
+
+      /* Slider Styles */
+      .slider-container {
+        overflow: hidden;
+        position: relative;
+        max-width: 100%;
+      }
+
+      .slider {
+        display: flex;
+        gap: 1rem;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .card {
+        flex: 0 0 calc(33.33% - 1rem);
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      .card h3 {
+        margin: 0.5rem 0;
+        color: #333;
+      }
+
+      .card p {
+        color: #777;
+      }
+
+      .slider-controls {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .slider-controls button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .slider-controls button:hover {
+        background-color: #555;
+      }
+
+      /* Founder Popup */
+      #founder {
+        position: fixed;
+        top: 20%;
+        right: 0;
+        background: #fff;
+        border-radius: 8px 0 0 8px;
+        box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        max-width: 300px;
+        display: none;
+        z-index: 1000;
+      }
+
+      #founder h2 {
+        margin-top: 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .slider-container {
+          overflow-x: scroll;
+        }
+
+        .card {
+          flex: 0 0 calc(100% - 1rem);
+        }
+
+        .slider-controls {
+          display: none;
+        }
+
+        #founder {
+          max-width: 100%;
+          top: 10%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Dé Kedai</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a id="founderLink" href="#">Founder</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article id="about" class="section">
+        <h2>Tentang Kami</h2>
+        <p>Selamat datang di Kedai Kopi Modern, tempat di mana rasa bertemu dengan suasana. Kami menyajikan kopi terbaik dengan cita rasa khas untuk menemani hari Anda.</p>
+      </article>
+
+      <article id="menu" class="section">
+        <h2 style="text-align: center">Menu</h2>
+        <div class="slider-container">
+          <div class="slider">
+            <div class="card">
+              <h3>Espresso</h3>
+              <p>Rp 25.000</p>
+            </div>
+            <div class="card">
+              <h3>Latte</h3>
+              <p>Rp 30.000</p>
+            </div>
+            <div class="card">
+              <h3>Cappuccino</h3>
+              <p>Rp 30.000</p>
+            </div>
+            <div class="card">
+              <h3>Mocha</h3>
+              <p>Rp 35.000</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button id="prevBtn">&lt; Prev</button>
+          <button id="nextBtn">Next &gt;</button>
+        </div>
+      </article>
+
+      <aside id="founder">
+        <h2>Founder</h2>
+        <p>Kedai Kopi Modern didirikan oleh Budi Santoso, seorang pecinta kopi dengan visi menciptakan ruang bagi siapa saja yang ingin menikmati kopi berkualitas.</p>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Kedai Kopi Modern. Semua Hak Dilindungi.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Slider functionality
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.card');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const slideCount = slides.length;
+
+        function updateSlider() {
+          const offset = -currentIndex * (100 / 3); // 3 slides visible
+          slider.style.transform = `translateX(${offset}%)`;
+        }
+
+        function showNextSlide() {
+          currentIndex = (currentIndex + 1) % slideCount;
+          updateSlider();
+        }
+
+        function showPrevSlide() {
+          currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+          updateSlider();
+        }
+
+        nextBtn.addEventListener('click', showNextSlide);
+        prevBtn.addEventListener('click', showPrevSlide);
+
+        setInterval(showNextSlide, 3000);
+
+        // Founder functionality
+        const founderSection = document.getElementById('founder');
+        const founderLink = document.getElementById('founderLink');
+
+        founderLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          founderSection.style.display = 'block';
+
+          setTimeout(() => {
+            founderSection.style.display = 'none';
+          }, 10000); // Hide after 30 seconds
+        });
+      });
+    </script>
+  </body>
+</html>
